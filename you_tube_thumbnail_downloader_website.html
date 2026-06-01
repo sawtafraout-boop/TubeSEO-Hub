@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="PRO MAX Free YouTube SEO Tools Hub - Thumbnail downloader, tags, keywords, description generator, SEO checker and more.">
+<meta name="keywords" content="youtube tools, youtube seo tools, thumbnail downloader hd, seo tools free, youtube tags, keyword tool, video seo">
+<meta name="author" content="Free Tools Hub PRO MAX">
+<title>YouTube SEO Tools Hub PRO MAX (Free)</title>
+
+<!-- SEO STRUCTURED DATA -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "YouTube SEO Tools Hub PRO MAX",
+  "description": "Free YouTube SEO tools for creators",
+  "url": "https://example.com"
+}
+</script>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#0b0b0b;
+    color:white;
+}
+header{
+    background:linear-gradient(90deg,#ff0000,#990000);
+    text-align:center;
+    padding:18px;
+    font-size:22px;
+    font-weight:bold;
+}
+.container{
+    display:flex;
+    min-height:100vh;
+}
+.sidebar{
+    width:240px;
+    background:#151515;
+    padding:15px;
+}
+.sidebar button{
+    width:100%;
+    padding:12px;
+    margin:6px 0;
+    border:none;
+    cursor:pointer;
+    background:#2a2a2a;
+    color:white;
+    border-radius:6px;
+    text-align:left;
+}
+.sidebar button:hover{background:#ff0000;}
+.main{
+    flex:1;
+    padding:20px;
+}
+.card{
+    background:#1c1c1c;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:20px;
+}
+input,textarea{
+    width:90%;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:6px;
+}
+button.action{
+    padding:10px 15px;
+    background:#ff0000;
+    border:none;
+    color:white;
+    cursor:pointer;
+    border-radius:6px;
+}
+button.action:hover{background:#cc0000;}
+img{
+    width:250px;
+    margin:10px;
+    border-radius:10px;
+}
+.page{display:none;}
+.active{display:block;}
+.hero{
+    background:#111;
+    padding:20px;
+    border-radius:10px;
+}
+.small{
+    font-size:13px;
+    color:#bbb;
+}
+.copy{
+    background:#333;
+    border:none;
+    color:white;
+    padding:6px 10px;
+    cursor:pointer;
+    border-radius:5px;
+}
+.copy:hover{background:#ff0000;}
+</style>
+</head>
+<body>
+
+<header>🚀 YouTube SEO Tools Hub PRO MAX (100% Free)</header>
+
+<div class="container">
+
+<div class="sidebar">
+<button onclick="go('home')">🏠 Home</button>
+<button onclick="go('thumb')">Thumbnail</button>
+<button onclick="go('desc')">Description</button>
+<button onclick="go('tags')">Tags</button>
+<button onclick="go('kw')">Keywords</button>
+<button onclick="go('seo')">SEO Score</button>
+<button onclick="go('blog')">Blog SEO Tips</button>
+</div>
+
+<div class="main">
+
+<!-- HOME -->
+<div id="home" class="page active">
+<div class="hero">
+<h2>🔥 PRO MAX Free SEO Tools</h2>
+<p class="small">Rank your YouTube videos faster with powerful SEO tools.</p>
+</div>
+</div>
+
+<!-- THUMBNAIL -->
+<div id="thumb" class="page">
+<div class="card">
+<h2>Thumbnail Downloader</h2>
+<input id="url" placeholder="YouTube link">
+<button class="action" onclick="thumb()">Generate</button>
+<div id="thumbOut"></div>
+</div>
+</div>
+
+<!-- DESCRIPTION -->
+<div id="desc" class="page">
+<div class="card">
+<h2>Description Generator</h2>
+<input id="topic" placeholder="Video topic">
+<button class="action" onclick="desc()">Generate</button>
+<p id="descOut"></p>
+</div>
+</div>
+
+<!-- TAGS -->
+<div id="tags" class="page">
+<div class="card">
+<h2>Tags Generator</h2>
+<input id="tag" placeholder="Keyword">
+<button class="action" onclick="tags()">Generate</button>
+<p id="tagOut"></p>
+</div>
+</div>
+
+<!-- KEYWORDS -->
+<div id="kw" class="page">
+<div class="card">
+<h2>Keyword Tool</h2>
+<input id="kwInput" placeholder="Topic">
+<button class="action" onclick="kw()">Generate</button>
+<p id="kwOut"></p>
+</div>
+</div>
+
+<!-- SEO -->
+<div id="seo" class="page">
+<div class="card">
+<h2>SEO Score Checker</h2>
+<input id="seoInput" placeholder="Video title">
+<button class="action" onclick="seo()">Check</button>
+<p id="seoOut"></p>
+</div>
+</div>
+
+<!-- BLOG -->
+<div id="blog" class="page">
+<div class="card">
+<h2>📈 SEO Tips Blog</h2>
+<p class="small">🔥 How to rank on YouTube:</p>
+<ul>
+<li>Use long keywords (low competition)</li>
+<li>Write SEO optimized titles</li>
+<li>Use strong thumbnails</li>
+<li>Upload consistently</li>
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+
+<script>
+function go(id){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.location.hash=id;
+}
+
+function thumb(){
+    let url=document.getElementById('url').value;
+    let id='';
+    if(url.includes('watch?v=')) id=url.split('watch?v=')[1].split('&')[0];
+    if(url.includes('youtu.be/')) id=url.split('youtu.be/')[1];
+    if(!id){alert('Invalid');return;}
+
+    let q=['maxresdefault','hqdefault','mqdefault','sddefault'];
+    let h='';
+    q.forEach(x=>{
+        let img=`https://img.youtube.com/vi/${id}/${x}.jpg`;
+        h+=`<div><img src='${img}'><br><button class='copy' onclick="navigator.clipboard.writeText('${img}')">Copy</button></div>`;
+    });
+    document.getElementById('thumbOut').innerHTML=h;
+}
+
+function desc(){
+    let t=document.getElementById('topic').value;
+    document.getElementById('descOut').innerHTML=`In this video we explain ${t} step by step in a simple way for beginners.`;
+}
+
+function tags(){
+    let k=document.getElementById('tag').value;
+    document.getElementById('tagOut').innerHTML=`#${k} #youtube #viral #trending #${k}2026`;
+}
+
+function kw(){
+    let k=document.getElementById('kwInput').value;
+    document.getElementById('kwOut').innerHTML=`${k}, best ${k}, how to ${k}, ${k} tutorial, free ${k}`;
+}
+
+function seo(){
+    let t=document.getElementById('seoInput').value;
+    let score=Math.min(100,Math.floor(t.length*2));
+    document.getElementById('seoOut').innerHTML=`SEO Score: <b>${score}/100</b>`;
+}
+
+// load hash
+window.onload=()=>{
+    let h=location.hash.replace('#','');
+    if(h) go(h);
+};
+</script>
+
+</body>
+</html>
